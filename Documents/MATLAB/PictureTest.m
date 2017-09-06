@@ -11,7 +11,7 @@ x = x(:);
 n = length(x);
 
 %___MEASUREMENT MATRIX___
-m = 250; % number of samples, NOTE: small error still present after increasing m to 1500;
+m = floor(n/2); % number of samples, NOTE: small error still present after increasing m to 1500;
 Phi = randn(m,n); % Phi = i.i.d. Gaussian variables
 Psi = idct(eye(n));
 
@@ -44,8 +44,7 @@ x1 = Psi*s1;
 x2 = Psi*s2;
 x3 = Psi*s3;
 
-
-figure('name','Compressive sensing image reconstructions')
+%figure('name','Compressive sensing image reconstructions')
 subplot(1,4,1), imagesc(reshape(x,x_size)), xlabel('original'), axis image
 subplot(1,4,2), imagesc(reshape(x2,x_size)), xlabel('least squares'), axis image
 subplot(1,4,3), imagesc(reshape(x1,x_size)), xlabel('basis pursuit'), axis image

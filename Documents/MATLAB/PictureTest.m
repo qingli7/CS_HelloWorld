@@ -19,7 +19,7 @@ Psi = idct(eye(n));
 y = Phi*x;   % y = compressed signal 
 Theta = Phi*Psi;
 
-%___
+%___lca SOLUTION___
 lambda = 12;
 t = 1;
 h= 0.0001;

@@ -33,7 +33,7 @@ for i=1:1000
 end
 s3 = a;
 
-%___l2 NORM SOLUTION___ s2 = Theta\y; %s2 = pinv(Theta)*y
+%___l2 NORM SOLUTION___ 
 s2 = pinv(Theta)*y;  % s = sparse coefficient vector(to be determined)
 
 %___BP SOLUTION___

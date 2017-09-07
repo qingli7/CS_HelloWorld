@@ -1,0 +1,1 @@
+NSCT_PCNN.m是nsct和pcnn结合的融合,pcnn采用的不是改进型的，运算复杂，出结果很慢。

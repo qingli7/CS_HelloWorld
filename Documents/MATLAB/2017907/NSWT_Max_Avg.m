@@ -2,18 +2,13 @@
 clc;
 clear;
 tic;
-count = 50;  % 融合图像数
+count = 100;  % 融合图像数
 level = 6;
-BaseName1 = '/Users/ashen/Documents/MATLAB/2017907/simu04/im_0';
-BaseName2 = '/Users/ashen/Documents/MATLAB/2017907/simu04/im_ ';
-BaseNameSave = '/Users/ashen/Documents/MATLAB/';
+BaseName = 'D:\Fusion\Resize512\';
+BaseNameSave = 'D:\Fusion\Compare\';
 for i=1:count 
-    if i<10
-        str = strcat(BaseName1, num2str(i), '.bmp');
-    else 
-        str = strcat(BaseName2, num2str(i), '.bmp');
-    end
-    [Img(:,:,i), map] = imread(str);
+     str = strcat(BaseName, num2str(i), '.bmp');
+     [Img(:,:,i), map] = imread(str);
 end
  I1(:,:)=Img(:,:,1);
  C1 = atrousdec(double(I1),'9-7',level);
@@ -23,9 +18,7 @@ end
    C2 = atrousdec(double(I2),'9-7',level);
    for s=1:length(C1)   
        if s == 1
-           if c == count
-               C3{s}(:,:) =( C2{s}(:,:)+C1{s}(:,:))/2;
-           end
+          C3{s}(:,:) =( C2{s}(:,:)+C1{s}(:,:))/2;
        else
           C3{s}(:,:) = C3{s}(:,:).*(abs(C3{s}(:,:))>=abs(C2{s}(:,:))) + C2{s}(:,:).*(abs(C3{s}(:,:))<abs(C2{s}(:,:)));
        end
